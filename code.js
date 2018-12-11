@@ -21,3 +21,15 @@ function find(arr) {
     }
     return true;
    }
+   //found this on FreeCodeCamp
+   function x(name) {
+    this.name = name;
+    this.numLegs = 2;
+  }
+  
+  let y = new x("yoy");
+  let ownProps = [];
+  // Add your code below this line
+  for (let i in y){
+    if (y.hasOwnProperty(i)){ownProps.push(i)}
+  }
