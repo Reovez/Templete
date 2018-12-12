@@ -29,7 +29,18 @@ function find(arr) {
   
   let y = new x("yoy");
   let ownProps = [];
-  // Add your code below this line
+  
   for (let i in y){
     if (y.hasOwnProperty(i)){ownProps.push(i)}
   }
+  // another one
+  function Lion(name) {
+  this.name = name;
+}
+
+let simba = new Lion("Snoopy");
+
+Dog.prototype.isPrototypeOf(simba);  // => true
+
+// Fix the code below so that it evaluates to true
+Object.prototype.isPrototypeOf(Lion.prototype);
