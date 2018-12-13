@@ -52,7 +52,7 @@ function isFullAge(){
   arr3.forEach(function(cur){ console.log((2018-cur)>= 18)});
 }
 //es6
-function isFulAge(...years){
-years.forEach(cur=> console.log((2018-cur)>=18))
+function isFulAge(limit,...years){
+years.forEach(cur=> console.log((2018-cur)>=limit))
 }
-isFulAge(1990,1888,1965,2016)
+//isFulAge(18,1990,1888,1965,2016)
