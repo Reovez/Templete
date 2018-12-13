@@ -44,3 +44,15 @@ Dog.prototype.isPrototypeOf(simba);  // => true
 
 // Fix the code below so that it evaluates to true
 Object.prototype.isPrototypeOf(Lion.prototype);
+
+// using the arguments with es5
+function isFullAge(){
+  //console.log(arguments);
+  var arr3 = Array.prototype.slice.call(arguments);
+  arr3.forEach(function(cur){ console.log((2018-cur)>= 18)});
+}
+//es6
+function isFulAge(...years){
+years.forEach(cur=> console.log((2018-cur)>=18))
+}
+isFulAge(1990,1888,1965,2016)
