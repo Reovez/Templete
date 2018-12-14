@@ -79,5 +79,38 @@ if (typeof (key) ==='number'){
 }
 }
 const ans = parseInt(prompt('please enter the correct answer'));
-question.get('correct')=== ans? console.log(question.get('true')):
-console.log(question.get('false'));
+question.get('correct')=== ans? console.log(question.get('true')):console.log(question.get('false'));
+//console.log(question.get(ans===(question.get('correct'))));
+//constructor in es5
+/*
+var Person = function(name,age,year){
+  this.name = name;
+  this.age=age;
+  this.year = year;
+}
+Person.prototype.calcAge = function(){
+  var age = new Date().getFullYear - this.year;
+  console.log(age);
+}
+var john = new Person('john', 34,1989);
+*/
+//classes in es6
+class Person{
+    constructor(name,age,year){
+        this.name = name;
+        this.age = age;
+        this.year = year;
+    }
+    /*now we can add our code in here.
+    So there's no function keywords here, no prototype
+    like we had to do here.
+    No, all we do here is to simply add this new method
+    right to our class.
+    And note that we don't have any separating punctuation here,
+    okay, so no commas or no semicolons
+    */
+    calcAge(){
+      var age = new Date().getFullYear - this.year;
+  console.log(age);
+    }
+}
