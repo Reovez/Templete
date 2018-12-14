@@ -59,6 +59,9 @@ years.forEach(cur=> console.log((2018-cur)>=limit))
 
 
 // Map()
+// question.keys()
+//question.values();
+//question.entries();
 let question = new Map();
 question.set('question','what is the best game of all time?');
 question.set(1,'ChronoCross');
@@ -95,6 +98,7 @@ Person.prototype.calcAge = function(){
 var john = new Person('john', 34,1989);
 */
 //classes in es6
+//class definitions are NOT hoisted
 class Person{
     constructor(name,age,year){
         this.name = name;
@@ -110,7 +114,35 @@ class Person{
     okay, so no commas or no semicolons
     */
     calcAge(){
-      var age = new Date().getFullYear - this.year;
+      var age = new Date().getFullYear() - this.year;
   console.log(age);
     }
+    /*static is basically a method that is attached
+to this class definition,
+and this class definition is under the hood,
+behind the scenes, so it won't be inherited by john, but can be used like this: Person.greeting()
+*/
+    static greeting(){console.log('hi')}
 }
+const john = new Person('john', 34,1878)
+//inheritence
+//es5
+  //we have to call the superclass function constructor with this as a this keyword
+  //So, when creating a new athlete object,(new) creates a new empty object,
+  //called the athlete function constructor,and sets the this keywordto the newly created empty objects.
+  //in execution context that we're in here,
+//the this keyword will point to the new empty object.
+//Now, if we want a person property's name,
+//year, and age to be set
+//on the new athlete object,
+//then we need to call the person function constructor
+//with the this keyword also set
+//to our newly created athlete object
+  
+var athlete5 = function(name, age,year,olimpicGames, medals){
+  Person.call(this,name,age,year);
+  this.olimpicGames = olimpicGames;
+  this.medals= medals;
+}
+athlete5.prototype = Object.create(Person.prototype);
+var jonny = new athlete5('jonny',43,2017,3,4);
