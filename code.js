@@ -42,7 +42,7 @@ let simba = new Lion("Snoopy");
 
 Dog.prototype.isPrototypeOf(simba);  // => true
 
-// Fix the code below so that it evaluates to true
+
 Object.prototype.isPrototypeOf(Lion.prototype);
 
 // using the arguments with es5
@@ -56,3 +56,28 @@ function isFulAge(limit,...years){
 years.forEach(cur=> console.log((2018-cur)>=limit))
 }
 //isFulAge(18,1990,1888,1965,2016)
+
+
+// Map()
+let question = new Map();
+question.set('question','what is the best game of all time?');
+question.set(1,'ChronoCross');
+question.set(2,'FinalFantasy');
+question.set(3,'MetalGear');
+question.set('correct',1);
+question.set('true','correct answer is 1')
+question.set('false','Wrong, please don\'t try again' );
+//question.get(1);
+//question.delete();
+//question.size();
+//question.clear();
+if (question.has(3)){console.table(question)}
+question.forEach((value,key)=> console.log(`the key is ${key} and the value is ${value}`));
+for (let [key,value] of question.entries()){
+if (typeof (key) ==='number'){
+    console.log(`the answer of ${key} is ${value}`);
+}
+}
+const ans = parseInt(prompt('please enter the correct answer'));
+question.get('correct')=== ans? console.log(question.get('true')):
+console.log(question.get('false'));
