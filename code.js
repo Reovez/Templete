@@ -156,16 +156,56 @@ class Person{
       this.name = name;
       this.age = age;
       this.year = year;
-  };
-};
+  }
+}
 class athlete6 extends Person{
   constructor(name,age,year,olimpicGames,medals){
      super(name,age,year);
      this.olimpicGames= olimpicGames;
      this.medals=medals;
   }
-  wonMedals =function(){
+  wonMedals (){
     this.medals++;
-    console.log(medals)
+    console.log(medals);
   }
+}
+/*var bubbleSort = function(arr){
+  var counter = 1
+  var temp =0;
+  var lastDot = arr.length-1;
+  while(counter !=0){
+  for (let i =0; i<arr.length;i++){
+    if (arr[i]>arr[i+1]){
+      temp = arr[i];
+      arr[i]=arr[i+1];
+      arr[i+1]=temp;
+      counter = counter+1;
+    }else{
+    counter =0;
+    }
+  }
+}
+return arr
+}
+*/
+function swap(a, b, array) { // a = array[j], b = array[j + 1]
+	let left = array[b]; //array[j+1]
+	let right = array[a]; //array[j]
+	array[a] = left;
+	array[b] = right;
+}
+
+
+function bubbleSort(array) {
+	let swapCounter = 0;
+	for (let i = 0; i < array.length; i++) {
+		for (let j = 0; j < array.length; j++) {
+			if (array[j] > array[j + 1]) {
+				swap(j, j + 1, array);
+				swapCounter++;
+			}
+		}
+	}
+	// console.log(swapCounter)
+	return array;
 }
