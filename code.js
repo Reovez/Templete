@@ -145,4 +145,27 @@ var athlete5 = function(name, age,year,olimpicGames, medals){
   this.medals= medals;
 }
 athlete5.prototype = Object.create(Person.prototype);
+athlete5.prototype.wonMedal = function(){
+  this.medals++;
+  console.log(medals);
+}
 var jonny = new athlete5('jonny',43,2017,3,4);
+//es6
+class Person{
+  constructor(name,age,year){
+      this.name = name;
+      this.age = age;
+      this.year = year;
+  };
+};
+class athlete6 extends Person{
+  constructor(name,age,year,olimpicGames,medals){
+     super(name,age,year);
+     this.olimpicGames= olimpicGames;
+     this.medals=medals;
+  }
+  wonMedals =function(){
+    this.medals++;
+    console.log(medals)
+  }
+}
