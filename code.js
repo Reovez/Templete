@@ -209,3 +209,44 @@ function bubbleSort(array) {
 	// console.log(swapCounter)
 	return array;
 }
+// a code that i want to finish later
+class TownElement{
+  constructor(name,buildYear) {
+      this.name = name;
+      this.buildYear = buildYear;
+  }
+
+}
+
+class Park extends TownElement{
+  constructor(name,buildYear,noTree,parkArea,age){
+      super(name,buildYear);
+      this.noTree = noTree;
+      this.parkArea = parkArea;
+      this.age = age;
+      
+  }
+  Density(){ console.log(`${parseInt(this.noTree/this.parkArea)} %`);};
+
+};
+
+class Street extends TownElement{
+  constructor(name,buildYear,size=3,length){
+      super(name,buildYear);
+      this.size = size;
+      this.length = length;
+      
+    
+  }
+  ClassifyStreet{
+      const classification= new Map();
+      classification.set(1,'tiny');
+      classification.set(2,'small');
+      classification.set(3,'normal');
+      classification.set(4,'big');
+      classification.set(5,'huge');
+      console.log(`${this.name}, built in ${this.buildYear} is a ${classification.get(this.size)} street`);
+  }
+
+ 
+}
