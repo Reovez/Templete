@@ -250,3 +250,17 @@ class Street extends TownElement{
 
  
 }
+//setTimeOut and how it works
+function getRecipe(){
+  setTimeout(() => {
+       const recipeID = [243,7765,43,5453,6546];
+       console.log(recipeID);
+       setTimeout((id)=>{
+           const recipe = {title: 'pizzaHut', publisher: 'yours truly'}
+          console.log(`${id} = ${recipe.title} by ${recipe.publisher}`);
+          setTimeout(publisher => {console.log(publisher)},3000,recipe.publisher)
+      },1000,recipeID[2])
+  }, 1500);
+  
+
+};
