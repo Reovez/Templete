@@ -252,7 +252,7 @@ class Street extends TownElement{
 }
 //setTimeOut and how it works
 function getRecipe(){
-  setTimeout(() => {
+ /* setTimeout(() => {
        const recipeID = [243,7765,43,5453,6546];
        console.log(recipeID);
        setTimeout((id)=>{
@@ -262,5 +262,25 @@ function getRecipe(){
       },1000,recipeID[2])
   }, 1500);
   
-
+*/
 };
+//promises
+// promises accept (resolve, and reject) it's basically returning something, to use what you returned, use (then, catch)
+// the argument used with (then ,catch) is the return result of resolve and reject
+const getIDs = new Promise((resolve,reject)=>{
+setTimeout(()=>{
+        resolve([3,4,565,56,56,565,656])
+},1599)
+})
+getIDs.then(IDs=> console.log(IDs))
+.catch(error=> console.log('error'));
+const recipeID = recID=>{
+  return new Promise((resolve,regect)=>{
+    setTimeout(ID=>{
+      const recipe = {title: 'whatever', publisher: 'manager'};
+      resolve(`${ID}: ${recipe.title}`)
+    },1455,recID)
+    
+
+  })
+}
