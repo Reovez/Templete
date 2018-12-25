@@ -299,10 +299,10 @@ async function getRecipesAW(){
 }
 getRecipesAW().then(result=> console.log(result));
 //fetch()
-//without a server or an access you can use //crossorigin.me/ before the url of most websites to make it work
+//without a server or an access you can use https://crossorigin.me/ or https://api.codetabs.com/v1/proxy/ or http://cors-anywhere.herokuapp.com/ before the url of most websites to make it work
 // crossorigin would send data up to 2mb 
 // fetch returns a promise, so deal with .then and .catch if you want to use the result
-fetch('https://crossorigin.me/https://www.metaweather.com/api/location/2487956/')
+fetch('https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/2487956/')
 .then(result =>{
   console.log(result)
   // the result will return in json format and if we want to handle that we can change it to json
@@ -310,3 +310,15 @@ fetch('https://crossorigin.me/https://www.metaweather.com/api/location/2487956/'
 })
 .then(jResult=> {console.log(jResult)})
 .catch(error=> {console.log(error)});
+// we better  wrap it in a function like this:
+function getWeather(woeid){
+  fetch(`https://crossorigin.me//https://www.metaweather.com/api/location/${woeid}/`)
+.then(result =>{
+  console.log(result)
+  return result.json()
+})
+.then(jResult=> {console.log(jResult)})
+.catch(error=> {console.log(error)});
+}
+getWeather(2487956)
+
