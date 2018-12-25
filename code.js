@@ -287,6 +287,7 @@ const recipeID = recID=>{
 //async function
 // async can solve the .then hell by using await
 //await can only be used inside an async function
+//async will always return a promise
 
 async function getRecipesAW(){
   const IDs = await(getIDs)
@@ -321,4 +322,31 @@ function getWeather(woeid){
 .catch(error=> {console.log(error)});
 }
 getWeather(2487956)
+//async await
+async function getWeatherAW(woeid){
+  const result = await fetch(`https://www.metaweather.com/api/location/${woeid}/`);
+  const data = await result.json();
+  const today = data.consolidated_weather[0]
+  console.log(`temperature in ${data.title} stay between ${today.min_temp} and ${today.max_temp}`);
+}
+getWeatherAW(2487956)
+// try and catch = it's availabe in javascript and can be used easily, try a code and if it doesn't work, then catch
 
+async function getWeatherAW(woeid){
+  try{
+  const result = await fetch(`https://www.metaweather.com/api/location/${woeid}/`);
+  const data = await result.json();
+  const today = data.consolidated_weather[0]
+  console.log(`temperature in ${data.title} stay between ${today.min_temp} and ${today.max_temp}`);
+  //async function will return a promise so we do this 
+  return data
+}catch(error){
+  console.log(error);
+}
+
+}
+// then if we try to store the data in a value, this wont work:
+//const datainfo = getWeatherAW(2487956)
+// you have to use .then
+let dataInfo = getWeatherAW(2487956).then(data=>{dataInfo = data});
+getWeatherAW(2487956)
