@@ -286,6 +286,8 @@ const recipeID = recID=>{
 }
 //async function
 // async can solve the .then hell by using await
+//await can only be used inside an async function
+
 async function getRecipesAW(){
   const IDs = await(getIDs)
   console.log(IDs);
@@ -296,3 +298,15 @@ async function getRecipesAW(){
   return recipe;
 }
 getRecipesAW().then(result=> console.log(result));
+//fetch()
+//without a server or an access you can use //crossorigin.me/ before the url of most websites to make it work
+// crossorigin would send data up to 2mb 
+// fetch returns a promise, so deal with .then and .catch if you want to use the result
+fetch('https://crossorigin.me/https://www.metaweather.com/api/location/2487956/')
+.then(result =>{
+  console.log(result)
+  // the result will return in json format and if we want to handle that we can change it to json
+  return result.json()
+})
+.then(jResult=> {console.log(jResult)})
+.catch(error=> {console.log(error)});
