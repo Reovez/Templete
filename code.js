@@ -284,3 +284,15 @@ const recipeID = recID=>{
 
   })
 }
+//async function
+// async can solve the .then hell by using await
+async function getRecipesAW(){
+  const IDs = await(getIDs)
+  console.log(IDs);
+  const recipe = await getRecipe(IDa[2]);
+  console.log(recipe);
+  const related = await getRelated('Hayward');
+  console.log(related)
+  return recipe;
+}
+getRecipesAW().then(result=> console.log(result));
