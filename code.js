@@ -350,3 +350,5 @@ async function getWeatherAW(woeid){
 // you have to use .then
 let dataInfo = getWeatherAW(2487956).then(data=>{dataInfo = data});
 getWeatherAW(2487956)
+//using reduce to triverse through an object
+var averageRating = watchList.filter(x => x.Director === "Christopher Nolan").map(x => Number(x.imdbRating)).reduce((x1, x2) => x1 + x2) / watchList.filter(x => x.Director === "Christopher Nolan").length;
