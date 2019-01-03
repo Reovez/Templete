@@ -352,3 +352,16 @@ let dataInfo = getWeatherAW(2487956).then(data=>{dataInfo = data});
 getWeatherAW(2487956)
 //using reduce to triverse through an object
 var averageRating = watchList.filter(x => x.Director === "Christopher Nolan").map(x => Number(x.imdbRating)).reduce((x1, x2) => x1 + x2) / watchList.filter(x => x.Director === "Christopher Nolan").length;
+//finding max and min, could be usefull
+function sumAll(arr) {
+  var total = 0;
+  var max = Math.max(...arr);
+  var min = Math.min(...arr);
+while (min<=max){
+  total = total+min;
+  min++;
+}
+return total
+}
+
+sumAll([1, 4]);
