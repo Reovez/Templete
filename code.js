@@ -364,3 +364,18 @@ return total
 }
 
 sumAll([1, 4]);
+
+//Binary files
+const binary = require('binary-file');
+
+const myBinaryFile = new binary('pointclouds/result/data/r/r6062.bin','r');
+    try{
+
+    
+myBinaryFile.open(()=>{console.log("file working")})
+.then(()=>{console.log("still working")})
+.catch((error)=>{console.log(error)})
+}
+catch{console.log("didn't work")}
+finally{console.log("bye")};
+
